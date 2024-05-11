@@ -1,10 +1,5 @@
-import { Button } from "@mantine/core";
+import { TopContent } from "@/components/templates/top/TopContent";
 
 export default function Home() {
-	return (
-		<main>
-			<p>test</p>
-			<Button>test</Button>
-		</main>
-	);
+	return <TopContent />;
 }
