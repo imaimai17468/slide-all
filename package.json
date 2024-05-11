@@ -1,0 +1,35 @@
+{
+  "name": "slide-all",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome lint ./src",
+    "format": "biome format ./src",
+    "check": "biome check ./src",
+    "lint:fix": "biome lint --apply ./src",
+    "format:fix": "biome format ./src --write",
+    "check:fix": "biome check --apply ./src"
+  },
+  "dependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "@mantine/core": "^7.9.1",
+    "@mantine/hooks": "^7.9.1",
+    "@radix-ui/react-icons": "^1.3.0",
+    "lefthook": "^1.6.10",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8.4.38",
+    "postcss-preset-mantine": "^1.15.0",
+    "postcss-simple-vars": "^7.0.1",
+    "typescript": "^5"
+  }
+}
