@@ -1,7 +1,7 @@
 import { Box, Card, Flex, Stack } from "@mantine/core";
 import { SlideCard } from "./slide-card/SlideCard";
 
-export const SlidesContent: React.FC = () => (
+export const SlideContent: React.FC = () => (
 	<Box p={64} bg="blue.8" h="100vh">
 		<Flex gap={32} h="100%">
 			<Stack gap={32} flex={1} h="100%">
