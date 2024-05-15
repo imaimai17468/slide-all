@@ -1,4 +1,5 @@
 import { Box, Card, Flex, Stack } from "@mantine/core";
+import { BioCard } from "./slide-card/BioCard";
 import { CameraCard } from "./slide-card/CameraCard";
 import { SlideCard } from "./slide-card/SlideCard";
 
@@ -13,9 +14,7 @@ export const SlideContent: React.FC = () => (
 			</Stack>
 			<Stack gap={32}>
 				<CameraCard />
-				<Card shadow="md" radius="sm" flex={1}>
-					aaa
-				</Card>
+				<BioCard />
 			</Stack>
 		</Flex>
 	</Box>
