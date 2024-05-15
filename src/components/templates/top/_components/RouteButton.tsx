@@ -12,7 +12,7 @@ export const RouteButton: React.FC = () => {
 	return (
 		<Button
 			onClick={() => {
-				router.push(`/slides/${id}`);
+				router.push(`/slide/${id}`);
 			}}
 		>
 			<Flex gap={4} align="center">
