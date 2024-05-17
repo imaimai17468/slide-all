@@ -1,5 +1,5 @@
 "use client";
-import { slideUrlAtom } from "@/utils/slideUrlAtom";
+import { slideUrlAtom } from "@/atom/slideUrlAtom";
 import { Box, Button, Card, Flex, Input, Stack, Text } from "@mantine/core";
 import { useAtom } from "jotai";
 import { useRef, useState } from "react";
