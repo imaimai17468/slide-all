@@ -1,5 +1,5 @@
-import { TopContent } from "@/components/templates/top/TopContent";
+import { SlideContent } from "@/components/templates/slide/SlideContent";
 
 export default function Home() {
-	return <TopContent />;
+	return <SlideContent />;
 }
