@@ -1,6 +1,6 @@
 "use client";
 
-import { BioSchema } from "@/repository/bio/types";
+import { type Bio, BioSchema, isBio } from "@/repository/bio/types";
 import {
 	ActionIcon,
 	Divider,
@@ -17,17 +17,32 @@ import {
 	TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 
-export const BioCardForm: React.FC = () => {
+type Props = {
+	onSubmit: (values: Bio) => void;
+	onSetEditing: (value: boolean) => void;
+	initialValues?: Bio;
+};
+
+export const BioCardForm: React.FC<Props> = ({
+	onSubmit,
+	onSetEditing,
+	initialValues,
+}: Props) => {
 	const form = useForm({
 		mode: "uncontrolled",
+		initialValues,
 		validate: zodResolver(BioSchema),
 	});
 
+	const handleSubmit = (values: unknown) => {
+		if (isBio(values)) {
+			onSubmit(values);
+			onSetEditing(false);
+		}
+	};
+
 	return (
-		<form
-			onSubmit={form.onSubmit((values) => console.log(values))}
-			style={{ height: "100%" }}
-		>
+		<form onSubmit={form.onSubmit(handleSubmit)} style={{ height: "100%" }}>
 			<Stack justify="space-between" h="100%" pos="relative">
 				<Stack>
 					<Stack gap={8}>
