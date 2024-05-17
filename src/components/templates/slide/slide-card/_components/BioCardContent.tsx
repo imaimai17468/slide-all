@@ -1,8 +1,17 @@
 import type { Bio } from "@/repository/bio/types";
-import { ActionIcon, Alert, Divider, Flex, Stack } from "@mantine/core";
+import {
+	ActionIcon,
+	Alert,
+	Box,
+	Divider,
+	Flex,
+	Stack,
+	Text,
+} from "@mantine/core";
 import {
 	ChatBubbleIcon,
 	GitHubLogoIcon,
+	InfoCircledIcon,
 	Pencil1Icon,
 	PersonIcon,
 	TwitterLogoIcon,
@@ -22,39 +31,41 @@ export const BioCardContent: React.FC<Props> = ({
 	};
 
 	return (
-		<div>
+		<Box h="100%">
 			{!content ? (
-				<Alert>登壇情報が未入力です。</Alert>
+				<Alert icon={<InfoCircledIcon />} title="登壇情報が未入力です。">
+					カード右下のボタンから情報を入力したください
+				</Alert>
 			) : (
 				<Stack justify="space-between" h="100%" pos="relative">
 					<Stack>
 						<Stack gap={8}>
 							<Flex gap={8} align="center">
 								<ChatBubbleIcon />
-								<text>{content.title}</text>
+								<Text size="lg">{content.title}</Text>
 							</Flex>
-							<text>{content.description}</text>
+							<Text>{content.description}</Text>
 						</Stack>
 						<Divider />
 						<Stack gap={8}>
 							<Flex gap={8} align="center">
 								<PersonIcon />
-								<text>{content.name}</text>
+								<Text size="lg">{content.name}</Text>
 							</Flex>
-							<text>{content.bio}</text>
+							<Text>{content.bio}</Text>
 						</Stack>
 					</Stack>
 					<Stack gap={8} mt="auto">
 						{content.xID && (
 							<Flex gap={8} align="center">
 								<TwitterLogoIcon />
-								<text>{content.xID}</text>
+								<Text>{content.xID}</Text>
 							</Flex>
 						)}
 						{content.githubID && (
 							<Flex gap={8} align="center">
 								<GitHubLogoIcon />
-								<text>{content.githubID}</text>
+								<Text>{content.githubID}</Text>
 							</Flex>
 						)}
 					</Stack>
@@ -71,6 +82,6 @@ export const BioCardContent: React.FC<Props> = ({
 			>
 				<Pencil1Icon />
 			</ActionIcon>
-		</div>
+		</Box>
 	);
 };
