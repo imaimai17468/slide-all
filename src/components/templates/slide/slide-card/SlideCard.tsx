@@ -1,23 +1,49 @@
 "use client";
-
-import { Box, Button, Card, Flex, Input, Stack } from "@mantine/core";
+import { slideUrlAtom } from "@/utils/slideUrlAtom";
+import { Box, Button, Card, Flex, Input, Stack, Text } from "@mantine/core";
+import { useAtom } from "jotai";
 import { useRef, useState } from "react";
+import { useEffect } from "react";
 import { GoogleSlide } from "./_components/GoogleSlide";
 import { isUrl } from "./valid/isURL";
 
 export const SlideCard: React.FC = () => {
-	const inputREf = useRef<HTMLInputElement>(null);
-	const [url, setUrl] = useState<URL | null>(null);
+	const inputRef = useRef<HTMLInputElement>(null);
+	const [url, setUrl] = useState<string | null>(null);
+	const [slideUrl, setSlideUrl] = useAtom(slideUrlAtom);
+	const [isError, setIsError] = useState(false);
+
+	useEffect(() => {
+		if (slideUrl && isUrl(slideUrl)) {
+			setUrl(slideUrl);
+		}
+	}, [slideUrl]);
 
 	return (
 		<Card shadow="md" radius="sm" h="80%">
 			<Stack gap={16} h="100%">
 				<Flex gap={16}>
-					<Input ref={inputREf} placeholder="Google Slide URL" />
+					<Stack gap={4}>
+						<Input
+							ref={inputRef}
+							defaultValue={url ?? ""}
+							placeholder="Google Slide URL"
+						/>
+						{isError && (
+							<Text size="xs" c="red.6">
+								Invalid URL
+							</Text>
+						)}
+					</Stack>
 					<Button
 						onClick={() => {
-							if (inputREf.current && isUrl(inputREf.current.value)) {
-								setUrl(new URL(inputREf.current.value));
+							if (inputRef.current && isUrl(inputRef.current.value)) {
+								const url = inputRef.current.value;
+								setUrl(url);
+								setSlideUrl(url);
+								setIsError(false);
+							} else {
+								setIsError(true);
 							}
 						}}
 					>

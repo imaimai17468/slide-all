@@ -1,7 +1,7 @@
 import { getEmbedUrl } from "../_libs/getEmbedUrl";
 
 type Props = {
-	url: URL;
+	url: string;
 };
 
 export const GoogleSlide: React.FC<Props> = ({ url }) => {
