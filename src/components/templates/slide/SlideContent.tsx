@@ -12,7 +12,7 @@ export const SlideContent: React.FC = () => (
 					字幕
 				</Card>
 			</Stack>
-			<Stack gap={32}>
+			<Stack gap={32} w={300}>
 				<CameraCard />
 				<BioCard />
 			</Stack>
