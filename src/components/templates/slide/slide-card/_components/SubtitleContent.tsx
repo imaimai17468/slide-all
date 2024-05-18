@@ -29,7 +29,7 @@ export const SubtitleContent: React.FC = () => {
 		} else {
 			recognition.stop();
 		}
-	}, [isRecording, recognition]);
+	}, [isRecording]);
 
 	useEffect(() => {
 		if (!recognition) return;
@@ -53,31 +53,13 @@ export const SubtitleContent: React.FC = () => {
 				<Text>{text}</Text>
 			</Box>
 			<Flex gap={8}>
-				{isRecording ? (
-					<ActionIcon
-						bg="red.6"
-						onClick={() => {
-							setIsRecording(false);
-						}}
-					>
-						<PauseIcon />
-					</ActionIcon>
-				) : (
-					<ActionIcon
-						bg="green.6"
-						onClick={() => {
-							setIsRecording(true);
-						}}
-					>
-						<PlayIcon />
-					</ActionIcon>
-				)}
 				<ActionIcon
-					bg="red.6"
-					onClick={() => {
-						setText("");
-					}}
+					bg={isRecording ? "red.6" : "green.6"}
+					onClick={() => setIsRecording((prev) => !prev)}
 				>
+					{isRecording ? <PauseIcon /> : <PlayIcon />}
+				</ActionIcon>
+				<ActionIcon bg="red.6" onClick={() => setText("")}>
 					<TrashIcon />
 				</ActionIcon>
 			</Flex>
