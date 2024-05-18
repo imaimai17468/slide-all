@@ -1,6 +1,6 @@
 "use client";
 
-import { ActionIcon, Box, Flex } from "@mantine/core";
+import { ActionIcon, Box, Flex, Text } from "@mantine/core";
 import { PauseIcon, PlayIcon, TrashIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
 
@@ -37,7 +37,7 @@ export const SubtitleContent: React.FC = () => {
 			const results = event.results;
 			for (let i = event.resultIndex; i < results.length; i++) {
 				if (results[i].isFinal) {
-					setText((prevText) => prevText + results[i][0].transcript);
+					setText(results[i][0].transcript);
 					setTranscript("");
 				} else {
 					setTranscript(results[i][0].transcript);
@@ -47,8 +47,12 @@ export const SubtitleContent: React.FC = () => {
 	}, [recognition]);
 
 	return (
-		<Box pos="relative">
-			<Flex gap={8} pos="absolute" top={0} right={0}>
+		<Flex gap={16}>
+			<Box flex={1}>
+				<Text c="gray.5">{transcript}</Text>
+				<Text>{text}</Text>
+			</Box>
+			<Flex gap={8}>
 				{isRecording ? (
 					<ActionIcon
 						bg="red.6"
@@ -77,10 +81,6 @@ export const SubtitleContent: React.FC = () => {
 					<TrashIcon />
 				</ActionIcon>
 			</Flex>
-			<div>
-				<p>{transcript}</p>
-				<p>{text}</p>
-			</div>
-		</Box>
+		</Flex>
 	);
 };
