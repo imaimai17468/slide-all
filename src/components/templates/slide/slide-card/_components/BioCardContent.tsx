@@ -79,6 +79,7 @@ export const BioCardContent: React.FC<Props> = ({
 				right={4}
 				bg="green.6"
 				onClick={handleSetEditing}
+				aria-label="edit slide information"
 			>
 				<Pencil1Icon />
 			</ActionIcon>

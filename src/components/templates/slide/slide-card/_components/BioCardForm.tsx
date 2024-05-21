@@ -105,6 +105,7 @@ export const BioCardForm: React.FC<Props> = ({
 				bottom={4}
 				right={4}
 				bg="green.6"
+				aria-label="save slide information"
 			>
 				<CheckCircledIcon />
 			</ActionIcon>

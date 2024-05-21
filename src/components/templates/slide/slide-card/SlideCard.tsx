@@ -33,7 +33,13 @@ export const SlideCard: React.FC = () => {
 		<Card shadow="md" radius="sm" h="80%" pos="relative">
 			<Popover width={300} trapFocus withArrow position="bottom" shadow="md">
 				<Popover.Target>
-					<ActionIcon bg="green.6" pos="absolute" top={8} right={8}>
+					<ActionIcon
+						bg="green.6"
+						pos="absolute"
+						top={8}
+						right={8}
+						aria-label="slide-setting"
+					>
 						<GearIcon />
 					</ActionIcon>
 				</Popover.Target>

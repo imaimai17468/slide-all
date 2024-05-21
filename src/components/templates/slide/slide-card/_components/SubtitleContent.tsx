@@ -56,10 +56,15 @@ export const SubtitleContent: React.FC = () => {
 				<ActionIcon
 					bg={isRecording ? "red.6" : "green.6"}
 					onClick={() => setIsRecording((prev) => !prev)}
+					aria-label={isRecording ? "Pause" : "Record"}
 				>
 					{isRecording ? <PauseIcon /> : <PlayIcon />}
 				</ActionIcon>
-				<ActionIcon bg="red.6" onClick={() => setText("")}>
+				<ActionIcon
+					bg="red.6"
+					onClick={() => setText("")}
+					aria-label="Subtitle Delete"
+				>
 					<TrashIcon />
 				</ActionIcon>
 			</Flex>
