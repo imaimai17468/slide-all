@@ -1,8 +1,8 @@
 import { Box, Flex, Stack } from "@mantine/core";
-import { BioCard } from "./slide-card/BioCard";
-import { CameraCard } from "./slide-card/CameraCard";
-import { SlideCard } from "./slide-card/SlideCard";
-import { SubtitleCard } from "./slide-card/SubtitleCard";
+import { BioCard } from "./_components/BioCard";
+import { CameraCard } from "./_components/CameraCard";
+import { SlideCard } from "./_components/SlideCard";
+import { SubtitleCard } from "./_components/SubtitleCard";
 
 export const SlideContent: React.FC = () => (
 	<Box p={64} bg="blue.8" h="100vh">
