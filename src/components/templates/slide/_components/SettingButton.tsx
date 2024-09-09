@@ -5,6 +5,7 @@ import {
 	ActionIcon,
 	Button,
 	ColorPicker,
+	Input,
 	Popover,
 	Stack,
 	Text,
@@ -35,6 +36,7 @@ export const SettingButton: React.FC = () => {
 				<Stack gap={4}>
 					<Text fw={700}>BackgroundColor</Text>
 					<ColorPicker format="rgba" value={color} onChange={setColor} />
+					<Input value={color} onChange={(e) => setColor(e.target.value)} />
 					<Button
 						leftSection={<ColorWheelIcon />}
 						onClick={() => {
